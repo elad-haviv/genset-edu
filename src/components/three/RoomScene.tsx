@@ -578,13 +578,13 @@ export default function RoomScene(p: RoomSceneProps) {
   );
 
   useEffect(() => {
-    void cc.current?.setLookAt(6.5, 7.5, 9.5, -0.2, 0.6, -0.4, true);
+    void cc.current?.setLookAt(5.4, 6.4, 8.2, -0.2, 0.6, -0.4, true);
   }, [p.resetKey, p.scenario]);
 
   useEffect(() => () => void (document.body.style.cursor = ""), []);
 
   return (
-    <Canvas shadows dpr={[1, 2]} camera={{ position: [6.5, 7.5, 9.5], fov: 42, near: 0.1, far: 120 }}>
+    <Canvas shadows dpr={[1, 2]} camera={{ position: [5.4, 6.4, 8.2], fov: 42, near: 0.1, far: 120 }}>
       <color attach="background" args={["#070d1a"]} />
       <fog attach="fog" args={["#070d1a", 22, 45]} />
       <ambientLight intensity={0.45} />

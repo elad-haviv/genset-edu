@@ -34,7 +34,7 @@ function HeroDiagram() {
       {/* utility */}
       <g transform="translate(40 40)">
         <path d="M0 40 L15 0 L30 40 M5 25 H25 M8 15 H22" stroke="#7d8da3" strokeWidth="2" fill="none" />
-        <text x="15" y="58" textAnchor="middle" fontSize="10" fill="#7d8da3" fontFamily="monospace">GRID</text>
+        <text x="15" y="-6" textAnchor="middle" fontSize="10" fill="#7d8da3" fontFamily="monospace">GRID</text>
       </g>
       {/* generator */}
       <g transform="translate(55 165)">
