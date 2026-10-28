@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: #060b16;
+  color: #dbe6f5;
+}
+
+body {
+  background-image:
+    radial-gradient(1200px 600px at 85% -10%, rgba(30, 144, 255, 0.12), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(255, 154, 31, 0.07), transparent 60%),
+    linear-gradient(rgba(124, 200, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 200, 255, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/[0.07] bg-gradient-to-b from-navy-800/80 to-navy-900/80 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.7)] backdrop-blur;
+  }
+  .panel-inset {
+    @apply rounded-xl border border-white/[0.06] bg-navy-950/60;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-volt-400/70 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary {
+    @apply btn bg-volt-500 text-white shadow-[0_0_20px_-6px_rgba(30,144,255,0.9)] hover:bg-volt-400;
+  }
+  .btn-accent {
+    @apply btn bg-amber-500 text-navy-950 shadow-[0_0_20px_-6px_rgba(255,154,31,0.9)] hover:bg-amber-400;
+  }
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/[0.03] text-slate-200 hover:border-volt-400/40 hover:bg-volt-500/10;
+  }
+  .btn-on {
+    @apply border-volt-400/60 bg-volt-500/20 text-volt-300;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium;
+  }
+  .label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400;
+  }
+  .input {
+    @apply w-full rounded-lg border border-white/10 bg-navy-950/70 px-3 py-2 text-sm text-slate-100 outline-none transition
+      focus:border-volt-400/60 focus:ring-2 focus:ring-volt-400/20;
+  }
+  .prose-tech p {
+    @apply leading-relaxed text-slate-300;
+  }
+}
+
+/* range inputs */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1e90ff, #3fb0ff);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #1e90ff;
+  box-shadow: 0 0 12px rgba(30, 144, 255, 0.8);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #1e90ff;
+  cursor: pointer;
+}
+
+/* SVG current-flow helpers */
+.flow {
+  stroke-dasharray: 6 6;
+  animation: flow 0.8s linear infinite;
+}
+.flow-slow {
+  stroke-dasharray: 6 6;
+  animation: flow 1.6s linear infinite;
+}
+.flow-fast {
+  stroke-dasharray: 6 6;
+  animation: flow 0.35s linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f3254;
+  border-radius: 999px;
+  border: 2px solid #060b16;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow,
+  .flow-slow,
+  .flow-fast,
+  .animate-pulseRing,
+  .animate-blink {
+    animation: none !important;
+  }
+}
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-area {
+    display: block !important;
+  }
+}
